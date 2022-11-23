@@ -1,0 +1,34 @@
+   /*
+    //*** Crear documentos (libros)
+
+    // crear con algunos parametros
+    Book::create(
+        ['title' =>"the witcher"]
+    );
+    Book::create(
+        ['title' =>"the witcher",'description' => "Hola Mundo"]
+    );
+
+    // Buscar por where
+    //$books = Book::where('title', "Cualquier cosa")->get();
+
+    // buscar libros dado algunas condiciones
+    $books = Book::where('title', "the witcher")
+    //->whereNotNull('description')
+    ->whereNull('description')
+    //->toSql(); // ver SQL de la consulta
+    ->get();
+    // $books = Book::all(); obtener todos los documentos de la coleccion
+    //dd($books);
+
+    // buscar por ID del documento
+    $b = Book::find('5f47fde040090000c500688f')->increment('age');
+
+    // actualizar libro seleccionado
+    $b->update(['title' =>"the witcher 2.0", 'age' => 2017]);
+
+    // borrar libro seleccionado
+    $b->delete();
+
+    // encontrar por ID
+    $b = Book::find('5f47fde040090000c500688f');
